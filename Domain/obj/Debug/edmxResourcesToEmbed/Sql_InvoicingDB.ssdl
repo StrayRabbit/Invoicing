@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InvoicingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MobilePhone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MobileIMEI" Type="varchar" MaxLength="150" />
+    <Property Name="MobileBrandId" Type="int" />
+    <Property Name="MobileModelId" Type="int" />
+    <Property Name="MobileCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MobileSales" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MobileProfit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MobileSupplierId" Type="int" />
+    <Property Name="MobileSalesPersonId" Type="int" />
+    <Property Name="MobileInTime" Type="datetime" />
+    <Property Name="MobileOutTime" Type="datetime" />
+    <Property Name="MobileState" Type="int" />
+    <Property Name="MobileRemarks" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PROPTYPEBASE">
+    <Key>
+      <PropertyRef Name="PROPID" />
+    </Key>
+    <Property Name="PROPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROPCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPINITCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPNAME" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTATE" Type="int" />
+    <Property Name="PROPINIT" Type="int" />
+    <Property Name="PROPDEFAULT" Type="int" />
+    <Property Name="PROPPARENT" Type="int" />
+    <Property Name="PROPLEVEL" Type="int" />
+    <Property Name="PROPTYPE" Type="int" />
+    <Property Name="PROPBASEID" Type="int" />
+    <Property Name="PROPORDER" Type="int" />
+    <Property Name="PROPRAVCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPBASECODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPDETAILFLAG" Type="int" />
+    <Property Name="PROPMEMO" Type="nvarchar" MaxLength="1024" />
+    <Property Name="PROPINT1" Type="int" />
+    <Property Name="PROPINT2" Type="int" />
+    <Property Name="PROPINT3" Type="int" />
+    <Property Name="PROPINT4" Type="int" />
+    <Property Name="PROPINT5" Type="int" />
+    <Property Name="PROPINT6" Type="int" />
+    <Property Name="PROPINT7" Type="int" />
+    <Property Name="PROPINT8" Type="int" />
+    <Property Name="PROPFLOAT1" Type="float" />
+    <Property Name="PROPFLOAT2" Type="float" />
+    <Property Name="PROPFLOAT3" Type="float" />
+    <Property Name="PROPFLOAT4" Type="float" />
+    <Property Name="PROPSTRING1" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING2" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING3" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING4" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING5" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING6" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING7" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING8" Type="nvarchar" MaxLength="64" />
+    <Property Name="PROPSTRING9" Type="nvarchar" MaxLength="1024" />
+    <Property Name="PROPSTRING10" Type="nvarchar" MaxLength="64" />
+    <Property Name="CREATOR" Type="nvarchar" MaxLength="64" />
+    <Property Name="CREATEDATE" Type="nvarchar" MaxLength="64" />
+    <Property Name="UPDATER" Type="nvarchar" MaxLength="64" />
+    <Property Name="UPDATEDATE" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <Association Name="FK_MobilePhone_MobilePhone_Supplier">
+    <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+    <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPTYPEBASE">
+        <PropertyRef Name="PROPID" />
+      </Principal>
+      <Dependent Role="MobilePhone">
+        <PropertyRef Name="MobileSupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobilePhone_PROPTYPEBASE_Brand">
+    <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+    <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPTYPEBASE">
+        <PropertyRef Name="PROPID" />
+      </Principal>
+      <Dependent Role="MobilePhone">
+        <PropertyRef Name="MobileBrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobilePhone_PROPTYPEBASE_Model">
+    <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+    <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPTYPEBASE">
+        <PropertyRef Name="PROPID" />
+      </Principal>
+      <Dependent Role="MobilePhone">
+        <PropertyRef Name="MobileModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InvoicingModelStoreContainer">
+    <EntitySet Name="MobilePhone" EntityType="Self.MobilePhone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROPTYPEBASE" EntityType="Self.PROPTYPEBASE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MobilePhone_MobilePhone_Supplier" Association="Self.FK_MobilePhone_MobilePhone_Supplier">
+      <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+      <End Role="MobilePhone" EntitySet="MobilePhone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Brand" Association="Self.FK_MobilePhone_PROPTYPEBASE_Brand">
+      <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+      <End Role="MobilePhone" EntitySet="MobilePhone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Model" Association="Self.FK_MobilePhone_PROPTYPEBASE_Model">
+      <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+      <End Role="MobilePhone" EntitySet="MobilePhone" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

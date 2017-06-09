@@ -1,0 +1,5 @@
+D:\GitHub\Invoicing\Common\bin\Debug\Common.dll
+D:\GitHub\Invoicing\Common\bin\Debug\Common.pdb
+D:\GitHub\Invoicing\Common\obj\Debug\Common.dll
+D:\GitHub\Invoicing\Common\obj\Debug\Common.pdb
+D:\GitHub\Invoicing\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

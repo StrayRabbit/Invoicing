@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InvoicingModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="MobilePhone">
+      <EntityTypeMapping TypeName="InvoicingModel.MobilePhone">
+        <MappingFragment StoreEntitySet="MobilePhone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MobileIMEI" ColumnName="MobileIMEI" />
+          <ScalarProperty Name="MobileBrandId" ColumnName="MobileBrandId" />
+          <ScalarProperty Name="MobileModelId" ColumnName="MobileModelId" />
+          <ScalarProperty Name="MobileCost" ColumnName="MobileCost" />
+          <ScalarProperty Name="MobileSales" ColumnName="MobileSales" />
+          <ScalarProperty Name="MobileProfit" ColumnName="MobileProfit" />
+          <ScalarProperty Name="MobileSupplierId" ColumnName="MobileSupplierId" />
+          <ScalarProperty Name="MobileSalesPersonId" ColumnName="MobileSalesPersonId" />
+          <ScalarProperty Name="MobileInTime" ColumnName="MobileInTime" />
+          <ScalarProperty Name="MobileOutTime" ColumnName="MobileOutTime" />
+          <ScalarProperty Name="MobileState" ColumnName="MobileState" />
+          <ScalarProperty Name="MobileRemarks" ColumnName="MobileRemarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROPTYPEBASE">
+      <EntityTypeMapping TypeName="InvoicingModel.PROPTYPEBASE">
+        <MappingFragment StoreEntitySet="PROPTYPEBASE">
+          <ScalarProperty Name="PROPID" ColumnName="PROPID" />
+          <ScalarProperty Name="PROPCODE" ColumnName="PROPCODE" />
+          <ScalarProperty Name="PROPINITCODE" ColumnName="PROPINITCODE" />
+          <ScalarProperty Name="PROPNAME" ColumnName="PROPNAME" />
+          <ScalarProperty Name="PROPSTATE" ColumnName="PROPSTATE" />
+          <ScalarProperty Name="PROPINIT" ColumnName="PROPINIT" />
+          <ScalarProperty Name="PROPDEFAULT" ColumnName="PROPDEFAULT" />
+          <ScalarProperty Name="PROPPARENT" ColumnName="PROPPARENT" />
+          <ScalarProperty Name="PROPLEVEL" ColumnName="PROPLEVEL" />
+          <ScalarProperty Name="PROPTYPE" ColumnName="PROPTYPE" />
+          <ScalarProperty Name="PROPBASEID" ColumnName="PROPBASEID" />
+          <ScalarProperty Name="PROPORDER" ColumnName="PROPORDER" />
+          <ScalarProperty Name="PROPRAVCODE" ColumnName="PROPRAVCODE" />
+          <ScalarProperty Name="PROPBASECODE" ColumnName="PROPBASECODE" />
+          <ScalarProperty Name="PROPDETAILFLAG" ColumnName="PROPDETAILFLAG" />
+          <ScalarProperty Name="PROPMEMO" ColumnName="PROPMEMO" />
+          <ScalarProperty Name="PROPINT1" ColumnName="PROPINT1" />
+          <ScalarProperty Name="PROPINT2" ColumnName="PROPINT2" />
+          <ScalarProperty Name="PROPINT3" ColumnName="PROPINT3" />
+          <ScalarProperty Name="PROPINT4" ColumnName="PROPINT4" />
+          <ScalarProperty Name="PROPINT5" ColumnName="PROPINT5" />
+          <ScalarProperty Name="PROPINT6" ColumnName="PROPINT6" />
+          <ScalarProperty Name="PROPINT7" ColumnName="PROPINT7" />
+          <ScalarProperty Name="PROPINT8" ColumnName="PROPINT8" />
+          <ScalarProperty Name="PROPFLOAT1" ColumnName="PROPFLOAT1" />
+          <ScalarProperty Name="PROPFLOAT2" ColumnName="PROPFLOAT2" />
+          <ScalarProperty Name="PROPFLOAT3" ColumnName="PROPFLOAT3" />
+          <ScalarProperty Name="PROPFLOAT4" ColumnName="PROPFLOAT4" />
+          <ScalarProperty Name="PROPSTRING1" ColumnName="PROPSTRING1" />
+          <ScalarProperty Name="PROPSTRING2" ColumnName="PROPSTRING2" />
+          <ScalarProperty Name="PROPSTRING3" ColumnName="PROPSTRING3" />
+          <ScalarProperty Name="PROPSTRING4" ColumnName="PROPSTRING4" />
+          <ScalarProperty Name="PROPSTRING5" ColumnName="PROPSTRING5" />
+          <ScalarProperty Name="PROPSTRING6" ColumnName="PROPSTRING6" />
+          <ScalarProperty Name="PROPSTRING7" ColumnName="PROPSTRING7" />
+          <ScalarProperty Name="PROPSTRING8" ColumnName="PROPSTRING8" />
+          <ScalarProperty Name="PROPSTRING9" ColumnName="PROPSTRING9" />
+          <ScalarProperty Name="PROPSTRING10" ColumnName="PROPSTRING10" />
+          <ScalarProperty Name="CREATOR" ColumnName="CREATOR" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATER" ColumnName="UPDATER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

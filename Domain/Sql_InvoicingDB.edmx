@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InvoicingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MobilePhone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MobileIMEI" Type="varchar" MaxLength="150" />
+          <Property Name="MobileBrandId" Type="int" />
+          <Property Name="MobileModelId" Type="int" />
+          <Property Name="MobileCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MobileSales" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MobileProfit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MobileSupplierId" Type="int" />
+          <Property Name="MobileSalesPersonId" Type="int" />
+          <Property Name="MobileInTime" Type="datetime" />
+          <Property Name="MobileOutTime" Type="datetime" />
+          <Property Name="MobileState" Type="int" />
+          <Property Name="MobileRemarks" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PROPTYPEBASE">
+          <Key>
+            <PropertyRef Name="PROPID" />
+          </Key>
+          <Property Name="PROPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROPCODE" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPINITCODE" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPNAME" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTATE" Type="int" />
+          <Property Name="PROPINIT" Type="int" />
+          <Property Name="PROPDEFAULT" Type="int" />
+          <Property Name="PROPPARENT" Type="int" />
+          <Property Name="PROPLEVEL" Type="int" />
+          <Property Name="PROPTYPE" Type="int" />
+          <Property Name="PROPBASEID" Type="int" />
+          <Property Name="PROPORDER" Type="int" />
+          <Property Name="PROPRAVCODE" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPBASECODE" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPDETAILFLAG" Type="int" />
+          <Property Name="PROPMEMO" Type="nvarchar" MaxLength="1024" />
+          <Property Name="PROPINT1" Type="int" />
+          <Property Name="PROPINT2" Type="int" />
+          <Property Name="PROPINT3" Type="int" />
+          <Property Name="PROPINT4" Type="int" />
+          <Property Name="PROPINT5" Type="int" />
+          <Property Name="PROPINT6" Type="int" />
+          <Property Name="PROPINT7" Type="int" />
+          <Property Name="PROPINT8" Type="int" />
+          <Property Name="PROPFLOAT1" Type="float" />
+          <Property Name="PROPFLOAT2" Type="float" />
+          <Property Name="PROPFLOAT3" Type="float" />
+          <Property Name="PROPFLOAT4" Type="float" />
+          <Property Name="PROPSTRING1" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING2" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING3" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING4" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING5" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING6" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING7" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING8" Type="nvarchar" MaxLength="64" />
+          <Property Name="PROPSTRING9" Type="nvarchar" MaxLength="1024" />
+          <Property Name="PROPSTRING10" Type="nvarchar" MaxLength="64" />
+          <Property Name="CREATOR" Type="nvarchar" MaxLength="64" />
+          <Property Name="CREATEDATE" Type="nvarchar" MaxLength="64" />
+          <Property Name="UPDATER" Type="nvarchar" MaxLength="64" />
+          <Property Name="UPDATEDATE" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <Association Name="FK_MobilePhone_MobilePhone_Supplier">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MobilePhone_PROPTYPEBASE_Brand">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileBrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MobilePhone_PROPTYPEBASE_Model">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InvoicingModelStoreContainer">
+          <EntitySet Name="MobilePhone" EntityType="Self.MobilePhone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROPTYPEBASE" EntityType="Self.PROPTYPEBASE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MobilePhone_MobilePhone_Supplier" Association="Self.FK_MobilePhone_MobilePhone_Supplier">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Brand" Association="Self.FK_MobilePhone_PROPTYPEBASE_Brand">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Model" Association="Self.FK_MobilePhone_PROPTYPEBASE_Model">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InvoicingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MobilePhone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobileIMEI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MobileBrandId" Type="Int32" />
+          <Property Name="MobileModelId" Type="Int32" />
+          <Property Name="MobileCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MobileSales" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MobileProfit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MobileSupplierId" Type="Int32" />
+          <Property Name="MobileSalesPersonId" Type="Int32" />
+          <Property Name="MobileInTime" Type="DateTime" Precision="3" />
+          <Property Name="MobileOutTime" Type="DateTime" Precision="3" />
+          <Property Name="MobileState" Type="Int32" />
+          <Property Name="MobileRemarks" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="MobileBrand" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Brand" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
+          <NavigationProperty Name="MobileModel" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Model" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
+          <NavigationProperty Name="MobileSupplier" Relationship="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
+        </EntityType>
+        <EntityType Name="PROPTYPEBASE">
+          <Key>
+            <PropertyRef Name="PROPID" />
+          </Key>
+          <Property Name="PROPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROPCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPINITCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTATE" Type="Int32" />
+          <Property Name="PROPINIT" Type="Int32" />
+          <Property Name="PROPDEFAULT" Type="Int32" />
+          <Property Name="PROPPARENT" Type="Int32" />
+          <Property Name="PROPLEVEL" Type="Int32" />
+          <Property Name="PROPTYPE" Type="Int32" />
+          <Property Name="PROPBASEID" Type="Int32" />
+          <Property Name="PROPORDER" Type="Int32" />
+          <Property Name="PROPRAVCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPBASECODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPDETAILFLAG" Type="Int32" />
+          <Property Name="PROPMEMO" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="PROPINT1" Type="Int32" />
+          <Property Name="PROPINT2" Type="Int32" />
+          <Property Name="PROPINT3" Type="Int32" />
+          <Property Name="PROPINT4" Type="Int32" />
+          <Property Name="PROPINT5" Type="Int32" />
+          <Property Name="PROPINT6" Type="Int32" />
+          <Property Name="PROPINT7" Type="Int32" />
+          <Property Name="PROPINT8" Type="Int32" />
+          <Property Name="PROPFLOAT1" Type="Double" />
+          <Property Name="PROPFLOAT2" Type="Double" />
+          <Property Name="PROPFLOAT3" Type="Double" />
+          <Property Name="PROPFLOAT4" Type="Double" />
+          <Property Name="PROPSTRING1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING3" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING4" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING5" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING6" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING7" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING8" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING9" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="PROPSTRING10" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="CREATOR" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="CREATEDATE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATEDATE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MobileBrand" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Brand" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+          <NavigationProperty Name="MobileModel" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Model" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+          <NavigationProperty Name="MobileSupplier" Relationship="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+        </EntityType>
+        <Association Name="FK_MobilePhone_PROPTYPEBASE_Brand">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileBrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MobilePhone_PROPTYPEBASE_Model">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MobilePhone" EntityType="Self.MobilePhone" />
+          <EntitySet Name="PROPTYPEBASE" EntityType="Self.PROPTYPEBASE" />
+          <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Brand" Association="Self.FK_MobilePhone_PROPTYPEBASE_Brand">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Model" Association="Self.FK_MobilePhone_PROPTYPEBASE_Model">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobilePhone_MobilePhone_Supplier" Association="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_MobilePhone_MobilePhone_Supplier">
+          <End Type="InvoicingModel.PROPTYPEBASE" Role="PROPTYPEBASE" Multiplicity="0..1" />
+          <End Type="InvoicingModel.MobilePhone" Role="MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InvoicingModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="MobilePhone">
+            <EntityTypeMapping TypeName="InvoicingModel.MobilePhone">
+              <MappingFragment StoreEntitySet="MobilePhone">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MobileIMEI" ColumnName="MobileIMEI" />
+                <ScalarProperty Name="MobileBrandId" ColumnName="MobileBrandId" />
+                <ScalarProperty Name="MobileModelId" ColumnName="MobileModelId" />
+                <ScalarProperty Name="MobileCost" ColumnName="MobileCost" />
+                <ScalarProperty Name="MobileSales" ColumnName="MobileSales" />
+                <ScalarProperty Name="MobileProfit" ColumnName="MobileProfit" />
+                <ScalarProperty Name="MobileSupplierId" ColumnName="MobileSupplierId" />
+                <ScalarProperty Name="MobileSalesPersonId" ColumnName="MobileSalesPersonId" />
+                <ScalarProperty Name="MobileInTime" ColumnName="MobileInTime" />
+                <ScalarProperty Name="MobileOutTime" ColumnName="MobileOutTime" />
+                <ScalarProperty Name="MobileState" ColumnName="MobileState" />
+                <ScalarProperty Name="MobileRemarks" ColumnName="MobileRemarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROPTYPEBASE">
+            <EntityTypeMapping TypeName="InvoicingModel.PROPTYPEBASE">
+              <MappingFragment StoreEntitySet="PROPTYPEBASE">
+                <ScalarProperty Name="PROPID" ColumnName="PROPID" />
+                <ScalarProperty Name="PROPCODE" ColumnName="PROPCODE" />
+                <ScalarProperty Name="PROPINITCODE" ColumnName="PROPINITCODE" />
+                <ScalarProperty Name="PROPNAME" ColumnName="PROPNAME" />
+                <ScalarProperty Name="PROPSTATE" ColumnName="PROPSTATE" />
+                <ScalarProperty Name="PROPINIT" ColumnName="PROPINIT" />
+                <ScalarProperty Name="PROPDEFAULT" ColumnName="PROPDEFAULT" />
+                <ScalarProperty Name="PROPPARENT" ColumnName="PROPPARENT" />
+                <ScalarProperty Name="PROPLEVEL" ColumnName="PROPLEVEL" />
+                <ScalarProperty Name="PROPTYPE" ColumnName="PROPTYPE" />
+                <ScalarProperty Name="PROPBASEID" ColumnName="PROPBASEID" />
+                <ScalarProperty Name="PROPORDER" ColumnName="PROPORDER" />
+                <ScalarProperty Name="PROPRAVCODE" ColumnName="PROPRAVCODE" />
+                <ScalarProperty Name="PROPBASECODE" ColumnName="PROPBASECODE" />
+                <ScalarProperty Name="PROPDETAILFLAG" ColumnName="PROPDETAILFLAG" />
+                <ScalarProperty Name="PROPMEMO" ColumnName="PROPMEMO" />
+                <ScalarProperty Name="PROPINT1" ColumnName="PROPINT1" />
+                <ScalarProperty Name="PROPINT2" ColumnName="PROPINT2" />
+                <ScalarProperty Name="PROPINT3" ColumnName="PROPINT3" />
+                <ScalarProperty Name="PROPINT4" ColumnName="PROPINT4" />
+                <ScalarProperty Name="PROPINT5" ColumnName="PROPINT5" />
+                <ScalarProperty Name="PROPINT6" ColumnName="PROPINT6" />
+                <ScalarProperty Name="PROPINT7" ColumnName="PROPINT7" />
+                <ScalarProperty Name="PROPINT8" ColumnName="PROPINT8" />
+                <ScalarProperty Name="PROPFLOAT1" ColumnName="PROPFLOAT1" />
+                <ScalarProperty Name="PROPFLOAT2" ColumnName="PROPFLOAT2" />
+                <ScalarProperty Name="PROPFLOAT3" ColumnName="PROPFLOAT3" />
+                <ScalarProperty Name="PROPFLOAT4" ColumnName="PROPFLOAT4" />
+                <ScalarProperty Name="PROPSTRING1" ColumnName="PROPSTRING1" />
+                <ScalarProperty Name="PROPSTRING2" ColumnName="PROPSTRING2" />
+                <ScalarProperty Name="PROPSTRING3" ColumnName="PROPSTRING3" />
+                <ScalarProperty Name="PROPSTRING4" ColumnName="PROPSTRING4" />
+                <ScalarProperty Name="PROPSTRING5" ColumnName="PROPSTRING5" />
+                <ScalarProperty Name="PROPSTRING6" ColumnName="PROPSTRING6" />
+                <ScalarProperty Name="PROPSTRING7" ColumnName="PROPSTRING7" />
+                <ScalarProperty Name="PROPSTRING8" ColumnName="PROPSTRING8" />
+                <ScalarProperty Name="PROPSTRING9" ColumnName="PROPSTRING9" />
+                <ScalarProperty Name="PROPSTRING10" ColumnName="PROPSTRING10" />
+                <ScalarProperty Name="CREATOR" ColumnName="CREATOR" />
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="UPDATER" ColumnName="UPDATER" />
+                <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+D:\GitHub\Invoicing\Domain\bin\Debug\Domain.dll.config
+D:\GitHub\Invoicing\Domain\bin\Debug\Domain.dll
+D:\GitHub\Invoicing\Domain\bin\Debug\Domain.pdb
+D:\GitHub\Invoicing\Domain\bin\Debug\EntityFramework.dll
+D:\GitHub\Invoicing\Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\Invoicing\Domain\bin\Debug\EntityFramework.xml
+D:\GitHub\Invoicing\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitHub\Invoicing\Domain\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\GitHub\Invoicing\Domain\obj\Debug\Domain.dll
+D:\GitHub\Invoicing\Domain\obj\Debug\Domain.pdb
+D:\GitHub\Invoicing\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
