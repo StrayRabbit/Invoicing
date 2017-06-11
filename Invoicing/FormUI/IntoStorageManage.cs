@@ -93,7 +93,10 @@ namespace Invoicing.FormUI
         {
             try
             {
-                //list = service.LoadListAll(p => p.MobileInTime >= Convert.ToDateTime(txt_BeginDate.Text.Trim())).Where(p.MobileInTime < Convert.ToDateTime(txt_EndDate.Text.Trim())).OrderByDescending(p => p.MobileInTime).ToList();
+                DateTime dt_Month_Begin = Convert.ToDateTime(txt_BeginDate.Text.Trim());
+                DateTime dt_Month_End = Convert.ToDateTime(txt_EndDate.Text.Trim() + " 23:59");
+
+                list = service.LoadListAll(p => p.MobileInTime >= dt_Month_Begin && p.MobileInTime < dt_Month_End).OrderByDescending(p => p.MobileInTime).ToList();
 
                 if (!string.IsNullOrEmpty(txt_IMEI.Text.Trim()))
                 {
@@ -146,6 +149,8 @@ namespace Invoicing.FormUI
                 gd_MobileList.Refresh();
                 gd_MobileList.RefreshDataSource();
             }
+
+            lbl_Sum.Text = string.Format("总数：{0}", list.Count);
         }
         #endregion
 
@@ -327,8 +332,14 @@ namespace Invoicing.FormUI
         }
         #endregion
 
+        #region 切换分页
+        private void cmbPageNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pageIndex = Convert.ToInt32(cmbPageNum.EditValue);
 
-
+            InitData();
+        }
+        #endregion
 
         #endregion
     }

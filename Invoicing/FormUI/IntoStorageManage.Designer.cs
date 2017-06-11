@@ -64,6 +64,7 @@
             this.btn_Last = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Preview = new DevExpress.XtraEditors.SimpleButton();
             this.btn_First = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Sum = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_EndDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_EndDate.Properties)).BeginInit();
@@ -124,6 +125,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txt_EndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txt_EndDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txt_EndDate.Size = new System.Drawing.Size(100, 20);
             this.txt_EndDate.TabIndex = 32;
             // 
@@ -136,6 +138,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txt_BeginDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txt_BeginDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txt_BeginDate.Size = new System.Drawing.Size(100, 20);
             this.txt_BeginDate.TabIndex = 31;
             // 
@@ -344,6 +347,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lbl_Sum);
             this.panelControl1.Controls.Add(this.cmbPageNum);
             this.panelControl1.Controls.Add(this.btn_MoveNext);
             this.panelControl1.Controls.Add(this.btn_Last);
@@ -360,8 +364,10 @@
             this.cmbPageNum.Name = "cmbPageNum";
             this.cmbPageNum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbPageNum.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPageNum.Size = new System.Drawing.Size(59, 20);
             this.cmbPageNum.TabIndex = 20;
+            this.cmbPageNum.SelectedIndexChanged += new System.EventHandler(this.cmbPageNum_SelectedIndexChanged);
             // 
             // btn_MoveNext
             // 
@@ -399,6 +405,14 @@
             this.btn_First.Text = "|<";
             this.btn_First.Click += new System.EventHandler(this.btn_First_Click);
             // 
+            // lbl_Sum
+            // 
+            this.lbl_Sum.Location = new System.Drawing.Point(13, 11);
+            this.lbl_Sum.Name = "lbl_Sum";
+            this.lbl_Sum.Size = new System.Drawing.Size(36, 14);
+            this.lbl_Sum.TabIndex = 21;
+            this.lbl_Sum.Text = "总数：";
+            // 
             // IntoStorageManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -431,6 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPageNum.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -474,6 +489,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit txt_EndDate;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl lbl_Sum;
 
     }
 }
