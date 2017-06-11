@@ -237,8 +237,11 @@ namespace Invoicing
             xtraTabbedMdiManager1.MdiParent = this;
             xf.Text = navBarItem1.Caption;
             xf.MdiParent = this;
+            var s = this.Width;
+            var ss = dockPanel1.Width;
 
             PanelControl PC = new PanelControl();
+            IntoStorageManage.FormWidth = this.Width - dockPanel1.Width-40;        //右边窗体宽度
             PC.Dock = DockStyle.Fill;
             xf.Controls.Add(PC);
             PC.Controls.Clear();
@@ -267,7 +270,7 @@ namespace Invoicing
             xf.Show();
             this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
         }
-        #endregion 
+        #endregion
         #endregion
     }
 }

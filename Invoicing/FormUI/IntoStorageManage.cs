@@ -14,7 +14,7 @@ namespace Invoicing.FormUI
 {
     public partial class IntoStorageManage : BaseUserControl
     {
-        private int pageSize = 10;      //一页多少条
+        private int pageSize = 15;      //一页多少条
         private int pageIndex = 1;      //当前页数
 
         List<Domain.MobilePhone> list;      //全部数据
@@ -24,6 +24,10 @@ namespace Invoicing.FormUI
         public IntoStorageManage()
         {
             InitializeComponent();
+
+            groupBox1.Width = FormWidth;
+            gd_MobileList.Width = FormWidth;
+            panelControl1.Width = FormWidth;
         }
 
         #region 封装页面属性
@@ -39,6 +43,11 @@ namespace Invoicing.FormUI
                 return _ItSelf;
             }
         }
+
+        /// <summary>
+        /// 页面宽度
+        /// </summary>
+        public static int FormWidth { get; set; }
         #endregion
 
         #region Load

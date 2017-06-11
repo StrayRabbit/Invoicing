@@ -59,12 +59,12 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lbl_Sum = new DevExpress.XtraEditors.LabelControl();
             this.cmbPageNum = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btn_MoveNext = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Last = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Preview = new DevExpress.XtraEditors.SimpleButton();
             this.btn_First = new DevExpress.XtraEditors.SimpleButton();
-            this.lbl_Sum = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_EndDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_EndDate.Properties)).BeginInit();
@@ -169,6 +169,7 @@
             // 
             // btn_Add
             // 
+            this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Add.Location = new System.Drawing.Point(927, 19);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(75, 23);
@@ -178,7 +179,7 @@
             // 
             // btn_Select
             // 
-            this.btn_Select.Location = new System.Drawing.Point(840, 20);
+            this.btn_Select.Location = new System.Drawing.Point(776, 19);
             this.btn_Select.Name = "btn_Select";
             this.btn_Select.Size = new System.Drawing.Size(75, 23);
             this.btn_Select.TabIndex = 17;
@@ -265,7 +266,7 @@
             this.gd_MobileList.Location = new System.Drawing.Point(3, 59);
             this.gd_MobileList.MainView = this.gridView1;
             this.gd_MobileList.Name = "gd_MobileList";
-            this.gd_MobileList.Size = new System.Drawing.Size(1008, 284);
+            this.gd_MobileList.Size = new System.Drawing.Size(1008, 338);
             this.gd_MobileList.TabIndex = 14;
             this.gd_MobileList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -353,13 +354,22 @@
             this.panelControl1.Controls.Add(this.btn_Last);
             this.panelControl1.Controls.Add(this.btn_Preview);
             this.panelControl1.Controls.Add(this.btn_First);
-            this.panelControl1.Location = new System.Drawing.Point(3, 352);
+            this.panelControl1.Location = new System.Drawing.Point(4, 400);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1008, 34);
             this.panelControl1.TabIndex = 16;
             // 
+            // lbl_Sum
+            // 
+            this.lbl_Sum.Location = new System.Drawing.Point(13, 11);
+            this.lbl_Sum.Name = "lbl_Sum";
+            this.lbl_Sum.Size = new System.Drawing.Size(36, 14);
+            this.lbl_Sum.TabIndex = 21;
+            this.lbl_Sum.Text = "总数：";
+            // 
             // cmbPageNum
             // 
+            this.cmbPageNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmbPageNum.Location = new System.Drawing.Point(856, 8);
             this.cmbPageNum.Name = "cmbPageNum";
             this.cmbPageNum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -371,6 +381,7 @@
             // 
             // btn_MoveNext
             // 
+            this.btn_MoveNext.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_MoveNext.Location = new System.Drawing.Point(921, 5);
             this.btn_MoveNext.Name = "btn_MoveNext";
             this.btn_MoveNext.Size = new System.Drawing.Size(38, 23);
@@ -380,6 +391,7 @@
             // 
             // btn_Last
             // 
+            this.btn_Last.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_Last.Location = new System.Drawing.Point(965, 5);
             this.btn_Last.Name = "btn_Last";
             this.btn_Last.Size = new System.Drawing.Size(38, 23);
@@ -389,6 +401,7 @@
             // 
             // btn_Preview
             // 
+            this.btn_Preview.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_Preview.Location = new System.Drawing.Point(812, 7);
             this.btn_Preview.Name = "btn_Preview";
             this.btn_Preview.Size = new System.Drawing.Size(38, 23);
@@ -398,20 +411,13 @@
             // 
             // btn_First
             // 
+            this.btn_First.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_First.Location = new System.Drawing.Point(768, 7);
             this.btn_First.Name = "btn_First";
             this.btn_First.Size = new System.Drawing.Size(38, 23);
             this.btn_First.TabIndex = 16;
             this.btn_First.Text = "|<";
             this.btn_First.Click += new System.EventHandler(this.btn_First_Click);
-            // 
-            // lbl_Sum
-            // 
-            this.lbl_Sum.Location = new System.Drawing.Point(13, 11);
-            this.lbl_Sum.Name = "lbl_Sum";
-            this.lbl_Sum.Size = new System.Drawing.Size(36, 14);
-            this.lbl_Sum.TabIndex = 21;
-            this.lbl_Sum.Text = "总数：";
             // 
             // IntoStorageManage
             // 
@@ -421,7 +427,7 @@
             this.Controls.Add(this.gd_MobileList);
             this.Controls.Add(this.groupBox1);
             this.Name = "IntoStorageManage";
-            this.Size = new System.Drawing.Size(1014, 424);
+            this.Size = new System.Drawing.Size(1014, 499);
             this.Load += new System.EventHandler(this.IntoStorageManage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
