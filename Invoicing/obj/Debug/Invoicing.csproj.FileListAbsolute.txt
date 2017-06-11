@@ -24,4 +24,3 @@ D:\GitHub\Invoicing\Invoicing\bin\Debug\Newtonsoft.Json.dll
 D:\GitHub\Invoicing\Invoicing\bin\Debug\Domain.pdb
 D:\GitHub\Invoicing\Invoicing\bin\Debug\Service.pdb
 D:\GitHub\Invoicing\Invoicing\bin\Debug\Common.pdb
-D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.IntoStorageV1.resources

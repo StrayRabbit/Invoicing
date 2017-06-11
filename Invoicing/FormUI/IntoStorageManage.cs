@@ -81,18 +81,7 @@ namespace Invoicing.FormUI
         #region 新增
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            //XtraForm xf = new XtraForm();
-            //xf.Text = "添加入库";
-
-            //PanelControl PC = new PanelControl();
-            //PC.Dock = DockStyle.Fill;
-            //xf.Controls.Add(PC);
-            //PC.Controls.Clear();
-            //PC.Controls.Add(IntoStorage.ItSelf);
-            //IntoStorage.ItSelf.Dock = System.Windows.Forms.DockStyle.Fill;
-            //xf.ShowDialog();
-
-            IntoStorageV1 xf = new IntoStorageV1();
+            IntoStorage xf = new IntoStorage();
             xf.ShowDialog();
         }
         #endregion

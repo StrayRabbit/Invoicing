@@ -90,23 +90,17 @@
     <Compile Include="FormUI\BasicDictionary.Designer.cs">
       <DependentUpon>BasicDictionary.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUI\IntoStorage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FormUI\IntoStorage.Designer.cs">
-      <DependentUpon>IntoStorage.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormUI\IntoStorageManage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FormUI\IntoStorageManage.Designer.cs">
       <DependentUpon>IntoStorageManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUI\IntoStorageV1.cs">
+    <Compile Include="FormUI\IntoStorage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUI\IntoStorageV1.Designer.cs">
-      <DependentUpon>IntoStorageV1.cs</DependentUpon>
+    <Compile Include="FormUI\IntoStorage.Designer.cs">
+      <DependentUpon>IntoStorage.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -122,14 +116,11 @@
     <EmbeddedResource Include="FormUI\BasicDictionary.resx">
       <DependentUpon>BasicDictionary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUI\IntoStorage.resx">
-      <DependentUpon>IntoStorage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormUI\IntoStorageManage.resx">
       <DependentUpon>IntoStorageManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUI\IntoStorageV1.resx">
-      <DependentUpon>IntoStorageV1.cs</DependentUpon>
+    <EmbeddedResource Include="FormUI\IntoStorage.resx">
+      <DependentUpon>IntoStorage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
