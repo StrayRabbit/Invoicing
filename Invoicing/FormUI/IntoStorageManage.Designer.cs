@@ -57,6 +57,7 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbl_Sum = new DevExpress.XtraEditors.LabelControl();
@@ -280,14 +281,15 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
+            this.gridColumn1,
             this.gridColumn8});
             this.gridView1.GridControl = this.gd_MobileList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
-            //this.gridView1.TopRowChanged += new System.EventHandler(this.gridView1_TopRowChanged);
             this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // gridColumn2
             // 
@@ -338,13 +340,21 @@
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "备注";
+            this.gridColumn1.FieldName = "MobileRemarks";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
+            // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "状态";
             this.gridColumn8.FieldName = "MobileState";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.VisibleIndex = 7;
             // 
             // panelControl1
             // 
@@ -496,6 +506,7 @@
         private DevExpress.XtraEditors.DateEdit txt_EndDate;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl lbl_Sum;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 
     }
 }

@@ -29,8 +29,9 @@ namespace Domain
         public string MobileRemarks { get; set; }
         public string MobileOutRemarks { get; set; }
     
+        public virtual PROPTYPEBASE MobileSupplier { get; set; }
         public virtual PROPTYPEBASE MobileBrand { get; set; }
         public virtual PROPTYPEBASE MobileModel { get; set; }
-        public virtual PROPTYPEBASE MobileSupplier { get; set; }
+        public virtual PROPTYPEBASE SalesPerson { get; set; }
     }
 }

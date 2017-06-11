@@ -24,6 +24,12 @@ namespace Invoicing.FormUI
         private void OutStorage_Load(object sender, EventArgs e)
         {
             InitLookUpEdit(lue_SalePerson, 5);      //销售员
+
+            if (SelectId > 0)
+            {
+                btn_Select.Enabled = false;
+                InitDataById(SelectId);
+            }
         }
         #endregion
 
@@ -112,14 +118,17 @@ namespace Invoicing.FormUI
 
                 model.MobileSales = Convert.ToDecimal(txt_Sales.Text.Trim());       //出库金额
                 model.MobileSalesPersonId = Convert.ToInt32(lue_SalePerson.EditValue);      //销售员
-                model.MobileOutTime = DateTime.Now;
+                //如果有出库时间，则不修改出库时间
+                model.MobileOutTime = model.MobileState == 0 ? DateTime.Now : model.MobileOutTime;
                 model.MobileState = 1;
                 model.MobileProfit = model.MobileSales - model.MobileCost;      //利润
-                //model.MobileRemarks
+                model.MobileOutRemarks = txt_Remarks.Text.Trim();       //备注
 
                 if (service.Update(model))
                 {
+                    DialogResult = DialogResult.OK;
                     XtraMessageBox.Show("保存成功!");
+                    this.Close();
                 }
                 else
                 {
@@ -145,18 +154,36 @@ namespace Invoicing.FormUI
                         return;
 
                     SelectId = f.SelectId;
-                    Service.IService.IMobilePhone service = new Service.ServiceImp.MobilePhone();
-                    var model = service.Get(p => p.ID == f.SelectId);
-                    btn_Select.Text = model.MobileIMEI;     //串码
-                    lbl_Brand.Text = model.MobileBrand.PROPNAME;        //品牌
-                    lbl_Type.Text = model.MobileModel.PROPNAME;     //型号
-                    lbl_Supplier.Text = model.MobileSupplier.PROPNAME;      //供应商
-                    lbl_Cost.Text = model.MobileCost.ToString();       //成本
+                    InitDataById(SelectId);
                 }
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show("选择串码出错!" + ex.Message);
+            }
+        }
+        #endregion
+
+        #region 根据ID加载数据
+        private void InitDataById(int id)
+        {
+            try
+            {
+                Service.IService.IMobilePhone service = new Service.ServiceImp.MobilePhone();
+                var model = service.Get(p => p.ID == id);
+                btn_Select.Text = model.MobileIMEI;     //串码
+                lbl_Brand.Text = model.MobileBrand.PROPNAME;        //品牌
+                lbl_Type.Text = model.MobileModel.PROPNAME;     //型号
+                lbl_Supplier.Text = model.MobileSupplier.PROPNAME;      //供应商
+                lbl_Cost.Text = model.MobileCost.ToString();       //成本
+
+                txt_Remarks.Text = model.MobileOutRemarks;      //备注
+                lue_SalePerson.EditValue = model.MobileSalesPersonId;       //销售员
+                txt_Sales.Text = model.MobileSales.ToString();      //出库金额
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("加载数据出错!" + ex.Message);
             }
         }
         #endregion

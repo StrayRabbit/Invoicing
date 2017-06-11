@@ -17,9 +17,10 @@ namespace Domain
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PROPTYPEBASE()
         {
-            this.MobileBrand = new HashSet<MobilePhone>();
-            this.MobileModel = new HashSet<MobilePhone>();
-            this.MobileSupplier = new HashSet<MobilePhone>();
+            this.MobilePhone = new HashSet<MobilePhone>();
+            this.MobilePhone1 = new HashSet<MobilePhone>();
+            this.MobilePhone2 = new HashSet<MobilePhone>();
+            this.MobilePhone3 = new HashSet<MobilePhone>();
         }
     
         public int PROPID { get; set; }
@@ -66,10 +67,12 @@ namespace Domain
         public string UPDATEDATE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MobilePhone> MobileBrand { get; set; }
+        public virtual ICollection<MobilePhone> MobilePhone { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MobilePhone> MobileModel { get; set; }
+        public virtual ICollection<MobilePhone> MobilePhone1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MobilePhone> MobileSupplier { get; set; }
+        public virtual ICollection<MobilePhone> MobilePhone2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MobilePhone> MobilePhone3 { get; set; }
     }
 }

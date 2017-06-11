@@ -44,11 +44,11 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.btn_Select = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txt_Remarks = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_SalePerson.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Sales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Select.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Remarks.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Save
@@ -56,7 +56,7 @@
             this.btn_Save.Location = new System.Drawing.Point(189, 323);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
-            this.btn_Save.TabIndex = 26;
+            this.btn_Save.TabIndex = 5;
             this.btn_Save.Text = "保存";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
@@ -147,14 +147,14 @@
             this.lue_SalePerson.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_SalePerson.Size = new System.Drawing.Size(100, 20);
-            this.lue_SalePerson.TabIndex = 37;
+            this.lue_SalePerson.TabIndex = 2;
             // 
             // txt_Sales
             // 
             this.txt_Sales.Location = new System.Drawing.Point(337, 152);
             this.txt_Sales.Name = "txt_Sales";
             this.txt_Sales.Size = new System.Drawing.Size(79, 20);
-            this.txt_Sales.TabIndex = 38;
+            this.txt_Sales.TabIndex = 3;
             // 
             // labelControl7
             // 
@@ -172,7 +172,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btn_Select.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.btn_Select.Size = new System.Drawing.Size(171, 20);
-            this.btn_Select.TabIndex = 41;
+            this.btn_Select.TabIndex = 1;
             this.btn_Select.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_Select_ButtonClick);
             // 
             // labelControl8
@@ -183,20 +183,19 @@
             this.labelControl8.TabIndex = 42;
             this.labelControl8.Text = "备注：";
             // 
-            // textEdit1
+            // txt_Remarks
             // 
-            this.textEdit1.Location = new System.Drawing.Point(105, 196);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.Size = new System.Drawing.Size(311, 86);
-            this.textEdit1.TabIndex = 43;
+            this.txt_Remarks.Location = new System.Drawing.Point(105, 188);
+            this.txt_Remarks.Name = "txt_Remarks";
+            this.txt_Remarks.Size = new System.Drawing.Size(311, 96);
+            this.txt_Remarks.TabIndex = 4;
             // 
             // OutStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 383);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txt_Remarks);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.btn_Select);
             this.Controls.Add(this.txt_Sales);
@@ -222,7 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lue_SalePerson.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Sales.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Select.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Remarks.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,6 +245,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.ButtonEdit btn_Select;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.MemoEdit txt_Remarks;
     }
 }

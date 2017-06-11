@@ -45,7 +45,7 @@ namespace Invoicing.FormUI
                 InitLookUpEdit(lue_Supplier, 4);     //加载供应商
 
                 //加载所有
-                list = service.LoadListAll(p => p.MobileInTime >= dt_Month_Begin && p.MobileInTime < dt_Month_End).ToList();
+                list = service.LoadListAll(p => p.MobileInTime >= dt_Month_Begin && p.MobileInTime < dt_Month_End).OrderByDescending(p => p.MobileInTime).ToList();
                 //加载页数
                 InitPageCount(list.Count);
                 InitData();
@@ -62,6 +62,7 @@ namespace Invoicing.FormUI
         private void btn_Add_Click(object sender, EventArgs e)
         {
             IntoStorage xf = new IntoStorage();
+            xf.Id = 0;
             if (DialogResult.OK == xf.ShowDialog())
             {
                 IntoStorageManage_Load(null, null);
@@ -201,7 +202,7 @@ namespace Invoicing.FormUI
         #region 格式化字段
         private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.Column.FieldName != "MobileState" && e.Column.FieldName != "MobileInTime") return;
+            if (e.Column.FieldName != "MobileState" && e.Column.FieldName != "MobileInTime" && e.Column.FieldName != "MobileRemarks") return;
 
             //状态
             if (e.Column.FieldName == "MobileState")
@@ -224,6 +225,15 @@ namespace Invoicing.FormUI
             if (e.Column.FieldName == "MobileInTime")
             {
                 e.Column.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            }
+
+            //显示备注
+            if (e.Column.FieldName == "MobileRemarks")
+            {
+                if (e.DisplayText.Length > 5)
+                {
+                    e.DisplayText = e.DisplayText.Substring(0, 5) + "...";
+                }
             }
         }
         #endregion
@@ -316,7 +326,26 @@ namespace Invoicing.FormUI
         }
         #endregion
 
-        #endregion 
+        #region 双击事件
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                IntoStorage f = new IntoStorage();
+                f.Id = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID"));
+                if (DialogResult.OK == f.ShowDialog())
+                {
+                    IntoStorageManage_Load(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("双击出错!" + ex.Message);
+            }
+        }
+        #endregion
+
+        #endregion
         #endregion
     }
 }

@@ -4,7 +4,6 @@
     <EntitySetMapping Name="MobilePhone">
       <EntityTypeMapping TypeName="InvoicingModel.MobilePhone">
         <MappingFragment StoreEntitySet="MobilePhone">
-          <ScalarProperty Name="MobileOutRemarks" ColumnName="MobileOutRemarks" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MobileIMEI" ColumnName="MobileIMEI" />
           <ScalarProperty Name="MobileBrandId" ColumnName="MobileBrandId" />
@@ -18,6 +17,7 @@
           <ScalarProperty Name="MobileOutTime" ColumnName="MobileOutTime" />
           <ScalarProperty Name="MobileState" ColumnName="MobileState" />
           <ScalarProperty Name="MobileRemarks" ColumnName="MobileRemarks" />
+          <ScalarProperty Name="MobileOutRemarks" ColumnName="MobileOutRemarks" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -39,16 +39,19 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_Remarks = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Supplier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Brand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Cost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_IMEI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Remarks.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lue_Supplier
             // 
-            this.lue_Supplier.Location = new System.Drawing.Point(102, 99);
+            this.lue_Supplier.Location = new System.Drawing.Point(102, 91);
             this.lue_Supplier.Name = "lue_Supplier";
             this.lue_Supplier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -76,30 +79,30 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(210, 248);
+            this.btn_Save.Location = new System.Drawing.Point(205, 320);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
-            this.btn_Save.TabIndex = 6;
+            this.btn_Save.TabIndex = 7;
             this.btn_Save.Text = "保存";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // txt_Cost
             // 
-            this.txt_Cost.Location = new System.Drawing.Point(334, 99);
+            this.txt_Cost.Location = new System.Drawing.Point(334, 91);
             this.txt_Cost.Name = "txt_Cost";
             this.txt_Cost.Size = new System.Drawing.Size(100, 20);
             this.txt_Cost.TabIndex = 4;
             // 
             // txt_IMEI
             // 
-            this.txt_IMEI.Location = new System.Drawing.Point(102, 154);
+            this.txt_IMEI.Location = new System.Drawing.Point(102, 147);
             this.txt_IMEI.Name = "txt_IMEI";
-            this.txt_IMEI.Size = new System.Drawing.Size(183, 20);
+            this.txt_IMEI.Size = new System.Drawing.Size(311, 20);
             this.txt_IMEI.TabIndex = 5;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(48, 102);
+            this.labelControl5.Location = new System.Drawing.Point(48, 94);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(48, 14);
             this.labelControl5.TabIndex = 20;
@@ -107,7 +110,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(292, 102);
+            this.labelControl4.Location = new System.Drawing.Point(292, 94);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(36, 14);
             this.labelControl4.TabIndex = 19;
@@ -115,7 +118,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(60, 157);
+            this.labelControl3.Location = new System.Drawing.Point(60, 150);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(36, 14);
             this.labelControl3.TabIndex = 18;
@@ -137,11 +140,28 @@
             this.labelControl1.TabIndex = 16;
             this.labelControl1.Text = "品牌：";
             // 
+            // txt_Remarks
+            // 
+            this.txt_Remarks.Location = new System.Drawing.Point(102, 198);
+            this.txt_Remarks.Name = "txt_Remarks";
+            this.txt_Remarks.Size = new System.Drawing.Size(311, 96);
+            this.txt_Remarks.TabIndex = 6;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(60, 242);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(36, 14);
+            this.labelControl8.TabIndex = 44;
+            this.labelControl8.Text = "备注：";
+            // 
             // IntoStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 301);
+            this.ClientSize = new System.Drawing.Size(469, 383);
+            this.Controls.Add(this.txt_Remarks);
+            this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.lue_Supplier);
             this.Controls.Add(this.lue_Type);
             this.Controls.Add(this.lue_Brand);
@@ -164,6 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lue_Brand.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Cost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_IMEI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Remarks.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +203,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.MemoEdit txt_Remarks;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }

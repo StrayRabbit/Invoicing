@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_Preview = new DevExpress.XtraEditors.SimpleButton();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemCheckEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -37,9 +38,17 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gd_MobileList = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbl_Sum = new DevExpress.XtraEditors.LabelControl();
             this.cmbPageNum = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -69,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gd_MobileList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPageNum.Properties)).BeginInit();
@@ -97,6 +107,7 @@
             this.btn_Preview.Size = new System.Drawing.Size(38, 23);
             this.btn_Preview.TabIndex = 17;
             this.btn_Preview.Text = "<";
+            this.btn_Preview.Click += new System.EventHandler(this.btn_Preview_Click);
             // 
             // repositoryItemComboBox2
             // 
@@ -119,12 +130,20 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn1,
+            this.gridColumn8,
+            this.gridColumn12});
             this.gridView1.GridControl = this.gd_MobileList;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
+            this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // gridColumn2
             // 
@@ -167,24 +186,63 @@
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
             // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "出库金额";
+            this.gridColumn9.FieldName = "MobileSales";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 5;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "利润";
+            this.gridColumn10.FieldName = "MobileProfit";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 6;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "销售员";
+            this.gridColumn11.FieldName = "SalesPerson.PROPNAME";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 7;
+            // 
             // gridColumn7
             // 
             this.gridColumn7.Caption = "入库时间";
             this.gridColumn7.FieldName = "MobileInTime";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.VisibleIndex = 8;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "出库时间";
+            this.gridColumn1.FieldName = "MobileOutTime";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 9;
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "状态";
-            this.gridColumn8.FieldName = "MobileState";
+            this.gridColumn8.Caption = "备注";
+            this.gridColumn8.FieldName = "MobileOutRemarks";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.VisibleIndex = 10;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "ID";
+            this.gridColumn12.FieldName = "ID";
+            this.gridColumn12.Name = "gridColumn12";
             // 
             // gd_MobileList
             // 
+            this.gd_MobileList.ContextMenuStrip = this.contextMenuStrip1;
             this.gd_MobileList.Location = new System.Drawing.Point(3, 62);
             this.gd_MobileList.MainView = this.gridView1;
             this.gd_MobileList.Name = "gd_MobileList";
@@ -192,6 +250,28 @@
             this.gd_MobileList.TabIndex = 18;
             this.gd_MobileList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // panelControl1
             // 
@@ -224,6 +304,7 @@
             this.cmbPageNum.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPageNum.Size = new System.Drawing.Size(59, 20);
             this.cmbPageNum.TabIndex = 20;
+            this.cmbPageNum.SelectedIndexChanged += new System.EventHandler(this.cmbPageNum_SelectedIndexChanged);
             // 
             // btn_MoveNext
             // 
@@ -233,6 +314,7 @@
             this.btn_MoveNext.Size = new System.Drawing.Size(38, 23);
             this.btn_MoveNext.TabIndex = 19;
             this.btn_MoveNext.Text = ">";
+            this.btn_MoveNext.Click += new System.EventHandler(this.btn_MoveNext_Click);
             // 
             // btn_Last
             // 
@@ -242,6 +324,7 @@
             this.btn_Last.Size = new System.Drawing.Size(38, 23);
             this.btn_Last.TabIndex = 18;
             this.btn_Last.Text = ">|";
+            this.btn_Last.Click += new System.EventHandler(this.btn_Last_Click);
             // 
             // btn_First
             // 
@@ -251,6 +334,7 @@
             this.btn_First.Size = new System.Drawing.Size(38, 23);
             this.btn_First.TabIndex = 16;
             this.btn_First.Text = "|<";
+            this.btn_First.Click += new System.EventHandler(this.btn_First_Click);
             // 
             // repositoryItemCheckEdit5
             // 
@@ -359,6 +443,7 @@
             this.btn_Select.Size = new System.Drawing.Size(75, 23);
             this.btn_Select.TabIndex = 17;
             this.btn_Select.Text = "查   询";
+            this.btn_Select.Click += new System.EventHandler(this.btn_Select_Click);
             // 
             // txt_IMEI
             // 
@@ -424,6 +509,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gd_MobileList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -487,5 +573,13 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit4;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
     }
 }

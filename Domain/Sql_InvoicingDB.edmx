@@ -107,6 +107,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MobilePhone_SalesPerson">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileSalesPersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="InvoicingModelStoreContainer">
           <EntitySet Name="MobilePhone" EntityType="Self.MobilePhone" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROPTYPEBASE" EntityType="Self.PROPTYPEBASE" Schema="dbo" store:Type="Tables" />
@@ -119,6 +131,10 @@
             <End Role="MobilePhone" EntitySet="MobilePhone" />
           </AssociationSet>
           <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Model" Association="Self.FK_MobilePhone_PROPTYPEBASE_Model">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobilePhone_SalesPerson" Association="Self.FK_MobilePhone_SalesPerson">
             <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
             <End Role="MobilePhone" EntitySet="MobilePhone" />
           </AssociationSet>
@@ -144,10 +160,11 @@
           <Property Name="MobileOutTime" Type="DateTime" Precision="3" />
           <Property Name="MobileState" Type="Int32" />
           <Property Name="MobileRemarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MobileOutRemarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MobileSupplier" Relationship="Self.FK_MobilePhone_MobilePhone_Supplier" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
           <NavigationProperty Name="MobileBrand" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Brand" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
           <NavigationProperty Name="MobileModel" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Model" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
-          <NavigationProperty Name="MobileSupplier" Relationship="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
-          <Property Name="MobileOutRemarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SalesPerson" Relationship="InvoicingModel.FK_MobilePhone_SalesPerson" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
         </EntityType>
         <EntityType Name="PROPTYPEBASE">
           <Key>
@@ -195,10 +212,23 @@
           <Property Name="CREATEDATE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="UPDATER" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDATE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MobileBrand" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Brand" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
-          <NavigationProperty Name="MobileModel" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Model" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
-          <NavigationProperty Name="MobileSupplier" Relationship="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+          <NavigationProperty Name="MobilePhone" Relationship="Self.FK_MobilePhone_MobilePhone_Supplier" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+          <NavigationProperty Name="MobilePhone1" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Brand" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+          <NavigationProperty Name="MobilePhone2" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Model" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
+          <NavigationProperty Name="MobilePhone3" Relationship="InvoicingModel.FK_MobilePhone_SalesPerson" FromRole="PROPTYPEBASE" ToRole="MobilePhone" />
         </EntityType>
+        <Association Name="FK_MobilePhone_MobilePhone_Supplier">
+          <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+          <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPTYPEBASE">
+              <PropertyRef Name="PROPID" />
+            </Principal>
+            <Dependent Role="MobilePhone">
+              <PropertyRef Name="MobileSupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MobilePhone_PROPTYPEBASE_Brand">
           <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
           <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
@@ -226,6 +256,10 @@
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MobilePhone" EntityType="Self.MobilePhone" />
           <EntitySet Name="PROPTYPEBASE" EntityType="Self.PROPTYPEBASE" />
+          <AssociationSet Name="FK_MobilePhone_MobilePhone_Supplier" Association="Self.FK_MobilePhone_MobilePhone_Supplier">
+            <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+            <End Role="MobilePhone" EntitySet="MobilePhone" />
+          </AssociationSet>
           <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Brand" Association="Self.FK_MobilePhone_PROPTYPEBASE_Brand">
             <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
             <End Role="MobilePhone" EntitySet="MobilePhone" />
@@ -234,12 +268,12 @@
             <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
             <End Role="MobilePhone" EntitySet="MobilePhone" />
           </AssociationSet>
-          <AssociationSet Name="FK_MobilePhone_MobilePhone_Supplier" Association="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier">
+          <AssociationSet Name="FK_MobilePhone_SalesPerson" Association="InvoicingModel.FK_MobilePhone_SalesPerson">
             <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
             <End Role="MobilePhone" EntitySet="MobilePhone" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_MobilePhone_MobilePhone_Supplier">
+        <Association Name="FK_MobilePhone_SalesPerson">
           <End Type="InvoicingModel.PROPTYPEBASE" Role="PROPTYPEBASE" Multiplicity="0..1" />
           <End Type="InvoicingModel.MobilePhone" Role="MobilePhone" Multiplicity="*" />
           <ReferentialConstraint>
@@ -247,7 +281,7 @@
               <PropertyRef Name="PROPID" />
             </Principal>
             <Dependent Role="MobilePhone">
-              <PropertyRef Name="MobileSupplierId" />
+              <PropertyRef Name="MobileSalesPersonId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -260,7 +294,6 @@
           <EntitySetMapping Name="MobilePhone">
             <EntityTypeMapping TypeName="InvoicingModel.MobilePhone">
               <MappingFragment StoreEntitySet="MobilePhone">
-                <ScalarProperty Name="MobileOutRemarks" ColumnName="MobileOutRemarks" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MobileIMEI" ColumnName="MobileIMEI" />
                 <ScalarProperty Name="MobileBrandId" ColumnName="MobileBrandId" />
@@ -274,6 +307,7 @@
                 <ScalarProperty Name="MobileOutTime" ColumnName="MobileOutTime" />
                 <ScalarProperty Name="MobileState" ColumnName="MobileState" />
                 <ScalarProperty Name="MobileRemarks" ColumnName="MobileRemarks" />
+                <ScalarProperty Name="MobileOutRemarks" ColumnName="MobileOutRemarks" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

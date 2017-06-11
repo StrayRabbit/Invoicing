@@ -13,10 +13,22 @@ namespace Invoicing.FormUI
 {
     public partial class IntoStorage : DevExpress.XtraEditors.XtraForm
     {
+        public int Id;      //区别修改还是添加
+
         public IntoStorage()
         {
             InitializeComponent();
         }
+
+        #region 数据加载
+        private void IntoStorageV1_Load(object sender, EventArgs e)
+        {
+            InitLookUpEdit(lue_Brand, 2);       //加载品牌
+            InitLookUpEdit(lue_Supplier, 4);     //加载供应商
+
+            InitDataById(Id);
+        }
+        #endregion
 
         #region 加载类型
         private void lue_Brand_EditValueChanged(object sender, EventArgs e)
@@ -109,14 +121,6 @@ namespace Invoicing.FormUI
         }
         #endregion
 
-        #region 数据加载
-        private void IntoStorageV1_Load(object sender, EventArgs e)
-        {
-            InitLookUpEdit(lue_Brand, 2);       //加载品牌
-            InitLookUpEdit(lue_Supplier, 4);     //加载供应商
-        }
-        #endregion
-
         #region 保存
         private void btn_Save_Click(object sender, EventArgs e)
         {
@@ -164,23 +168,38 @@ namespace Invoicing.FormUI
 
 
                 Service.IService.IMobilePhone phone = new Service.ServiceImp.MobilePhone();
+                Domain.MobilePhone mobile = new Domain.MobilePhone();
 
-                if (phone.IsExist(p => p.MobileIMEI == txt_IMEI.Text.Trim()))
+                if (Id <= 0)
                 {
-                    XtraMessageBox.Show("该串码已经存在!");
-                    return;
+                    //保存
+                    if (phone.IsExist(p => p.MobileIMEI == txt_IMEI.Text.Trim()))
+                    {
+                        XtraMessageBox.Show("该串码已经存在!");
+                        return;
+                    }
+                }
+                else
+                {
+                    mobile = phone.Get(p => p.ID == Id);
+
+                    if (mobile.MobileIMEI != txt_IMEI.Text.Trim() && phone.IsExist(p => p.MobileIMEI == txt_IMEI.Text.Trim()))
+                    {
+                        XtraMessageBox.Show("该串码已经存在!");
+                        return;
+                    }
                 }
 
-                Domain.MobilePhone mobile = new Domain.MobilePhone();
                 mobile.MobileBrandId = Convert.ToInt32(lue_Brand.EditValue);     //品牌ID
                 mobile.MobileModelId = Convert.ToInt32(lue_Type.EditValue);     //型号ID
                 mobile.MobileIMEI = txt_IMEI.Text.Trim();       //串码
                 mobile.MobileCost = Convert.ToDecimal(txt_Cost.Text.Trim());        //成本
                 mobile.MobileSupplierId = Convert.ToInt32(lue_Supplier.EditValue);  //供应商
-                mobile.MobileInTime = DateTime.Now;
+                mobile.MobileInTime = Id > 0 ? mobile.MobileInTime : DateTime.Now;
                 mobile.MobileState = 0;     //0 表示未出库
+                mobile.MobileRemarks = txt_Remarks.Text.Trim();     //备注
 
-                if (phone.Save(mobile))
+                if (phone.SaveOrUpdate(mobile, Id > 0))
                 {
                     XtraMessageBox.Show("保存成功!");
                     DialogResult = DialogResult.OK;
@@ -194,6 +213,33 @@ namespace Invoicing.FormUI
             catch (Exception ex)
             {
                 XtraMessageBox.Show("保存失败!" + ex.Message);
+            }
+        }
+        #endregion
+
+        #region 根据ID加载数据
+        private void InitDataById(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    return;
+                }
+
+                Service.IService.IMobilePhone phone = new Service.ServiceImp.MobilePhone();
+                var model = phone.Get(p => p.ID == id);
+
+                lue_Brand.EditValue = model.MobileBrandId;     //品牌ID
+                lue_Type.EditValue = model.MobileModelId;     //型号ID
+                txt_IMEI.Text = model.MobileIMEI;       //串码
+                txt_Cost.Text = model.MobileCost.ToString();        //成本
+                lue_Supplier.EditValue = model.MobileSupplierId;  //供应商
+                txt_Remarks.Text = model.MobileRemarks;     //备注
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("根据ID加载数据出错!" + ex.Message);
             }
         }
         #endregion

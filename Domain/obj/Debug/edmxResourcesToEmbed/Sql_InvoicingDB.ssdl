@@ -102,6 +102,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MobilePhone_SalesPerson">
+    <End Role="PROPTYPEBASE" Type="Self.PROPTYPEBASE" Multiplicity="0..1" />
+    <End Role="MobilePhone" Type="Self.MobilePhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPTYPEBASE">
+        <PropertyRef Name="PROPID" />
+      </Principal>
+      <Dependent Role="MobilePhone">
+        <PropertyRef Name="MobileSalesPersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="InvoicingModelStoreContainer">
     <EntitySet Name="MobilePhone" EntityType="Self.MobilePhone" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPTYPEBASE" EntityType="Self.PROPTYPEBASE" Schema="dbo" store:Type="Tables" />
@@ -114,6 +126,10 @@
       <End Role="MobilePhone" EntitySet="MobilePhone" />
     </AssociationSet>
     <AssociationSet Name="FK_MobilePhone_PROPTYPEBASE_Model" Association="Self.FK_MobilePhone_PROPTYPEBASE_Model">
+      <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
+      <End Role="MobilePhone" EntitySet="MobilePhone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobilePhone_SalesPerson" Association="Self.FK_MobilePhone_SalesPerson">
       <End Role="PROPTYPEBASE" EntitySet="PROPTYPEBASE" />
       <End Role="MobilePhone" EntitySet="MobilePhone" />
     </AssociationSet>
