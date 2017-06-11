@@ -189,6 +189,7 @@ namespace Invoicing.FormUI
         #endregion
 
         #region GridView相关
+
         #region 递增列
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
@@ -263,6 +264,7 @@ namespace Invoicing.FormUI
         #endregion
 
         #region 分页
+
         #region 下一页
         private void btn_MoveNext_Click(object sender, EventArgs e)
         {
@@ -326,6 +328,8 @@ namespace Invoicing.FormUI
         }
         #endregion
 
+        #endregion
+
         #region 双击事件
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -345,7 +349,53 @@ namespace Invoicing.FormUI
         }
         #endregion
 
+        #region 右键菜单（编辑）
+        private void 编辑ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IntoStorage f = new IntoStorage();
+                f.Id = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID"));
+                if (DialogResult.OK == f.ShowDialog())
+                {
+                    IntoStorageManage_Load(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("编辑出错!" + ex.Message);
+            }
+        }
         #endregion
+
+        #region 右键菜单（删除）
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID"));
+                if (DialogResult.OK == XtraMessageBox.Show("您确定将该条记录删除吗？", "操作", MessageBoxButtons.OKCancel))
+                {
+                    Service.IService.IMobilePhone service = new Service.ServiceImp.MobilePhone();
+                    if (service.Delete(p => p.ID == id) > 0)
+                    {
+                        XtraMessageBox.Show("删除成功!");
+                        IntoStorageManage_Load(null, null);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("删除失败!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("删除异常!" + ex.Message);
+            }
+        }
+        #endregion
+
+
         #endregion
     }
 }
