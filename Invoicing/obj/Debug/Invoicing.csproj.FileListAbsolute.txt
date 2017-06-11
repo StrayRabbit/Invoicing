@@ -12,7 +12,6 @@ D:\GitHub\Invoicing\Invoicing\bin\Debug\Service.pdb
 D:\GitHub\Invoicing\Invoicing\bin\Debug\EntityFramework.xml
 D:\GitHub\Invoicing\Invoicing\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.csprojResolveAssemblyReference.cache
-D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.Form1.resources
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.BasicDictionary.resources
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.IntoStorageManage.resources
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.IntoStorage.resources
@@ -27,3 +26,4 @@ D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.exe
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.pdb
 D:\GitHub\Invoicing\Invoicing\bin\Debug\Invoicing.exe.config
 D:\GitHub\Invoicing\Invoicing\bin\Debug\Invoicing.pdb
+D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.SearchSales.resources

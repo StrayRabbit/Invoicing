@@ -15,6 +15,8 @@ namespace Invoicing.FormUI
     {
         public int SelectId;        //选择串号ID
 
+        public bool IsSee;      //是否查看
+
         public OutStorage()
         {
             InitializeComponent();
@@ -29,6 +31,12 @@ namespace Invoicing.FormUI
             {
                 btn_Select.Enabled = false;
                 InitDataById(SelectId);
+            }
+
+            //隐藏保存按钮
+            if (IsSee)
+            {
+                btn_Save.Visible = false;
             }
         }
         #endregion

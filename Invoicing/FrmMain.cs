@@ -21,51 +21,6 @@ namespace Invoicing
         public FrmMain()
         {
             InitializeComponent();
-            #region 状态栏
-            //string url = Application.StartupPath + @"\Config.ini";
-            //IniFile iniFile = new IniFile(url);
-            //string username = iniFile.ReadIni("用户名字", "username", "");
-            //string num = iniFile.ReadIni("版本号", "versionnumber", "");
-            //this.barStaticItem1.Caption = "登录人：" + username;
-            //this.barStaticItem2.Caption = "版本：" + num;
-            #endregion
-            #region 控件汉化代码
-            //string strSkinName = Properties.Settings.Default.SkinName;//获得皮肤的值
-            //UserLookAndFeel.Default.SetSkinStyle(strSkinName);//默认系统界面皮肤
-            //SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true); //添加界面皮肤
-
-            #endregion
-            #region 左侧菜单加载
-            //this.navBarControl1.Groups.Clear();
-
-            #region 基础数据导入
-
-            //NavBarGroup _navBarGroup = new NavBarGroup();
-            //_navBarGroup.Name = "_navBarGroup";
-            //_navBarGroup.Caption = "基础数据导入";
-            ////添加子菜单
-            //NavBarItem _navBarItem = new NavBarItem();
-            //_navBarItem.Name = "PersonnelIndex";
-            //_navBarItem.Caption = "人员展示";
-            //_navBarItem.LargeImageIndex = 0;
-            ////添加 点击事件
-            //_navBarItem.LinkClicked += new NavBarLinkEventHandler(_navBarItem_LinkClicked);
-            //_navBarGroup.ItemLinks.Add(_navBarItem);
-            //////
-            //NavBarItem _navBarItem0 = new NavBarItem();
-            //_navBarItem0.Name = "ImportData";
-            //_navBarItem0.Caption = "数据导入";
-            //_navBarItem0.LargeImageIndex = 0;
-            ////添加 点击事件
-            //_navBarItem0.LinkClicked += new NavBarLinkEventHandler(_navBarItem_LinkClicked);
-            //_navBarGroup.ItemLinks.Add(_navBarItem0);
-            /////
-            //navBarControl1.Groups.Add(_navBarGroup);
-            //_navBarGroup.Expanded = true;
-            #endregion
-
-
-            #endregion
         }
 
         private int ChildFormWidth;      //子菜单宽度
@@ -243,9 +198,18 @@ namespace Invoicing
         #endregion
 
         #region 基础字典
-        private void navBarItem4_LinkClicked(object sender, NavBarLinkEventArgs e)
+        private void navBarItem5_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             AddChildForm(new BasicDictionary(), navBarItem4.Caption);
+        }
+        #endregion
+
+        #region 销售查询
+        private void navBarItem4_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            var fm = new SearchSales();
+            fm.Width = ChildFormWidth;
+            AddChildForm(fm, navBarItem4.Caption);
         }
         #endregion
 
@@ -301,6 +265,8 @@ namespace Invoicing
         }
         #endregion
 
-        
+
+
+
     }
 }
