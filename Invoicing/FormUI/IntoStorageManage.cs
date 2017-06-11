@@ -24,35 +24,15 @@ namespace Invoicing.FormUI
         public IntoStorageManage()
         {
             InitializeComponent();
-
-            groupBox1.Width = FormWidth;
-            gd_MobileList.Width = FormWidth;
-            panelControl1.Width = FormWidth;
         }
-
-        #region 封装页面属性
-        private static IntoStorageManage _ItSelf;
-        public static IntoStorageManage ItSelf
-        {
-            get
-            {
-                if (_ItSelf == null || _ItSelf.IsDisposed)
-                {
-                    _ItSelf = new IntoStorageManage();
-                }
-                return _ItSelf;
-            }
-        }
-
-        /// <summary>
-        /// 页面宽度
-        /// </summary>
-        public static int FormWidth { get; set; }
-        #endregion
 
         #region Load
         private void IntoStorageManage_Load(object sender, EventArgs e)
         {
+            groupBox1.Width = this.Width - 4;
+            gd_MobileList.Width = this.Width - 4;
+            panelControl1.Width = this.Width - 4;
+
             try
             {
                 DateTime dt_Month_Begin = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM") + "/01");
@@ -82,7 +62,10 @@ namespace Invoicing.FormUI
         private void btn_Add_Click(object sender, EventArgs e)
         {
             IntoStorage xf = new IntoStorage();
-            xf.ShowDialog();
+            if (DialogResult.OK == xf.ShowDialog())
+            {
+                IntoStorageManage_Load(null, null);
+            }
         }
         #endregion
 
@@ -204,6 +187,7 @@ namespace Invoicing.FormUI
         }
         #endregion
 
+        #region GridView相关
         #region 递增列
         private void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
@@ -241,13 +225,6 @@ namespace Invoicing.FormUI
             {
                 e.Column.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
             }
-        }
-        #endregion
-
-        #region grid下拉事件
-        private void gridView1_TopRowChanged(object sender, EventArgs e)
-        {
-            //var list = service.LoadListAll(null).OrderByDescending(p => p.MobileInTime).ToList();
         }
         #endregion
 
@@ -339,6 +316,7 @@ namespace Invoicing.FormUI
         }
         #endregion
 
+        #endregion 
         #endregion
     }
 }

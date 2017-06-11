@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8ffd18f6616e4b7aa59ae86520d0c337" Name="Diagram1" ZoomLevel="61">
+      <Diagram DiagramId="8ffd18f6616e4b7aa59ae86520d0c337" Name="Diagram1" ZoomLevel="60">
         <EntityTypeShape EntityType="InvoicingModel.MobilePhone" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="InvoicingModel.PROPTYPEBASE" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="InvoicingModel.FK_MobilePhone_PROPTYPEBASE_Brand" ManuallyRouted="false" />

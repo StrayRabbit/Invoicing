@@ -21,7 +21,8 @@
           <Property Name="MobileInTime" Type="datetime" />
           <Property Name="MobileOutTime" Type="datetime" />
           <Property Name="MobileState" Type="int" />
-          <Property Name="MobileRemarks" Type="nchar" MaxLength="200" />
+          <Property Name="MobileRemarks" Type="nvarchar" MaxLength="150" />
+          <Property Name="MobileOutRemarks" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="PROPTYPEBASE">
           <Key>
@@ -142,10 +143,11 @@
           <Property Name="MobileInTime" Type="DateTime" Precision="3" />
           <Property Name="MobileOutTime" Type="DateTime" Precision="3" />
           <Property Name="MobileState" Type="Int32" />
-          <Property Name="MobileRemarks" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="MobileRemarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MobileBrand" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Brand" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
           <NavigationProperty Name="MobileModel" Relationship="Self.FK_MobilePhone_PROPTYPEBASE_Model" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
           <NavigationProperty Name="MobileSupplier" Relationship="InvoicingModel.FK_MobilePhone_MobilePhone_Supplier" FromRole="MobilePhone" ToRole="PROPTYPEBASE" />
+          <Property Name="MobileOutRemarks" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PROPTYPEBASE">
           <Key>
@@ -258,6 +260,7 @@
           <EntitySetMapping Name="MobilePhone">
             <EntityTypeMapping TypeName="InvoicingModel.MobilePhone">
               <MappingFragment StoreEntitySet="MobilePhone">
+                <ScalarProperty Name="MobileOutRemarks" ColumnName="MobileOutRemarks" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MobileIMEI" ColumnName="MobileIMEI" />
                 <ScalarProperty Name="MobileBrandId" ColumnName="MobileBrandId" />

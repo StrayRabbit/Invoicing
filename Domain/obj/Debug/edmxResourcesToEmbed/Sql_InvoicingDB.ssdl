@@ -16,7 +16,8 @@
     <Property Name="MobileInTime" Type="datetime" />
     <Property Name="MobileOutTime" Type="datetime" />
     <Property Name="MobileState" Type="int" />
-    <Property Name="MobileRemarks" Type="nchar" MaxLength="200" />
+    <Property Name="MobileRemarks" Type="nvarchar" MaxLength="150" />
+    <Property Name="MobileOutRemarks" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="PROPTYPEBASE">
     <Key>

@@ -1,4 +1,3 @@
-D:\GitHub\Invoicing\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 D:\GitHub\Invoicing\Service\bin\Debug\Service.dll
 D:\GitHub\Invoicing\Service\bin\Debug\Service.pdb
 D:\GitHub\Invoicing\Service\bin\Debug\Common.dll
@@ -11,5 +10,6 @@ D:\GitHub\Invoicing\Service\bin\Debug\Domain.pdb
 D:\GitHub\Invoicing\Service\bin\Debug\EntityFramework.xml
 D:\GitHub\Invoicing\Service\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHub\Invoicing\Service\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\GitHub\Invoicing\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 D:\GitHub\Invoicing\Service\obj\Debug\Service.dll
 D:\GitHub\Invoicing\Service\obj\Debug\Service.pdb

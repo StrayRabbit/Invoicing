@@ -43,10 +43,13 @@
             this.btn_Add = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Delete = new DevExpress.XtraEditors.SimpleButton();
             this.btn_AddChild = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tl_BaseDic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_rootName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Order.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tl_BaseDic
@@ -93,7 +96,7 @@
             // 
             // txt_rootName
             // 
-            this.txt_rootName.Location = new System.Drawing.Point(428, 79);
+            this.txt_rootName.Location = new System.Drawing.Point(155, 88);
             this.txt_rootName.Name = "txt_rootName";
             this.txt_rootName.Properties.ReadOnly = true;
             this.txt_rootName.Size = new System.Drawing.Size(100, 20);
@@ -101,7 +104,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(361, 82);
+            this.labelControl4.Location = new System.Drawing.Point(88, 91);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(60, 14);
             this.labelControl4.TabIndex = 9;
@@ -109,14 +112,14 @@
             // 
             // txt_Name
             // 
-            this.txt_Name.Location = new System.Drawing.Point(428, 118);
+            this.txt_Name.Location = new System.Drawing.Point(155, 139);
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.Size = new System.Drawing.Size(100, 20);
             this.txt_Name.TabIndex = 12;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(361, 121);
+            this.labelControl1.Location = new System.Drawing.Point(88, 142);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 14);
             this.labelControl1.TabIndex = 11;
@@ -124,14 +127,14 @@
             // 
             // txt_Order
             // 
-            this.txt_Order.Location = new System.Drawing.Point(428, 155);
+            this.txt_Order.Location = new System.Drawing.Point(155, 188);
             this.txt_Order.Name = "txt_Order";
             this.txt_Order.Size = new System.Drawing.Size(100, 20);
             this.txt_Order.TabIndex = 14;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(385, 161);
+            this.labelControl2.Location = new System.Drawing.Point(112, 194);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(36, 14);
             this.labelControl2.TabIndex = 13;
@@ -139,7 +142,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(399, 210);
+            this.btn_Save.Location = new System.Drawing.Point(134, 259);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
             this.btn_Save.TabIndex = 15;
@@ -148,7 +151,7 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(234, 13);
+            this.btn_Add.Location = new System.Drawing.Point(5, 5);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(94, 23);
             this.btn_Add.TabIndex = 16;
@@ -157,7 +160,7 @@
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(638, 13);
+            this.btn_Delete.Location = new System.Drawing.Point(291, 5);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(75, 23);
             this.btn_Delete.TabIndex = 17;
@@ -166,27 +169,35 @@
             // 
             // btn_AddChild
             // 
-            this.btn_AddChild.Location = new System.Drawing.Point(344, 13);
+            this.btn_AddChild.Location = new System.Drawing.Point(105, 5);
             this.btn_AddChild.Name = "btn_AddChild";
             this.btn_AddChild.Size = new System.Drawing.Size(94, 23);
             this.btn_AddChild.TabIndex = 18;
             this.btn_AddChild.Text = "新增子节点";
             this.btn_AddChild.Click += new System.EventHandler(this.btn_AddChild_Click);
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btn_Add);
+            this.panelControl1.Controls.Add(this.btn_Save);
+            this.panelControl1.Controls.Add(this.btn_Delete);
+            this.panelControl1.Controls.Add(this.txt_Order);
+            this.panelControl1.Controls.Add(this.btn_AddChild);
+            this.panelControl1.Controls.Add(this.labelControl2);
+            this.panelControl1.Controls.Add(this.txt_rootName);
+            this.panelControl1.Controls.Add(this.txt_Name);
+            this.panelControl1.Controls.Add(this.labelControl4);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Location = new System.Drawing.Point(222, 3);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(376, 418);
+            this.panelControl1.TabIndex = 19;
+            // 
             // BasicDictionary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_AddChild);
-            this.Controls.Add(this.btn_Delete);
-            this.Controls.Add(this.btn_Add);
-            this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.txt_Order);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txt_Name);
-            this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.txt_rootName);
-            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.tl_BaseDic);
             this.Name = "BasicDictionary";
             this.Size = new System.Drawing.Size(725, 424);
@@ -195,8 +206,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_rootName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Order.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,5 +230,6 @@
         private DevExpress.XtraEditors.SimpleButton btn_Add;
         private DevExpress.XtraEditors.SimpleButton btn_Delete;
         private DevExpress.XtraEditors.SimpleButton btn_AddChild;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }

@@ -102,6 +102,24 @@
     <Compile Include="FormUI\IntoStorage.Designer.cs">
       <DependentUpon>IntoStorage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUI\OutStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\OutStorage.Designer.cs">
+      <DependentUpon>OutStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\OutStorageManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUI\OutStorageManage.Designer.cs">
+      <DependentUpon>OutStorageManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUI\StockList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUI\StockList.Designer.cs">
+      <DependentUpon>StockList.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +139,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\IntoStorage.resx">
       <DependentUpon>IntoStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\OutStorage.resx">
+      <DependentUpon>OutStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\OutStorageManage.resx">
+      <DependentUpon>OutStorageManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\StockList.resx">
+      <DependentUpon>StockList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

@@ -48,12 +48,12 @@
             // 
             // lue_Supplier
             // 
-            this.lue_Supplier.Location = new System.Drawing.Point(102, 164);
+            this.lue_Supplier.Location = new System.Drawing.Point(102, 99);
             this.lue_Supplier.Name = "lue_Supplier";
             this.lue_Supplier.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Supplier.Size = new System.Drawing.Size(100, 20);
-            this.lue_Supplier.TabIndex = 26;
+            this.lue_Supplier.TabIndex = 3;
             // 
             // lue_Type
             // 
@@ -62,7 +62,7 @@
             this.lue_Type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Type.Size = new System.Drawing.Size(100, 20);
-            this.lue_Type.TabIndex = 25;
+            this.lue_Type.TabIndex = 2;
             // 
             // lue_Brand
             // 
@@ -71,7 +71,7 @@
             this.lue_Brand.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Brand.Size = new System.Drawing.Size(100, 20);
-            this.lue_Brand.TabIndex = 24;
+            this.lue_Brand.TabIndex = 1;
             this.lue_Brand.EditValueChanged += new System.EventHandler(this.lue_Brand_EditValueChanged);
             // 
             // btn_Save
@@ -79,7 +79,7 @@
             this.btn_Save.Location = new System.Drawing.Point(210, 248);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
-            this.btn_Save.TabIndex = 23;
+            this.btn_Save.TabIndex = 6;
             this.btn_Save.Text = "保存";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
@@ -88,18 +88,18 @@
             this.txt_Cost.Location = new System.Drawing.Point(334, 99);
             this.txt_Cost.Name = "txt_Cost";
             this.txt_Cost.Size = new System.Drawing.Size(100, 20);
-            this.txt_Cost.TabIndex = 22;
+            this.txt_Cost.TabIndex = 4;
             // 
             // txt_IMEI
             // 
-            this.txt_IMEI.Location = new System.Drawing.Point(102, 99);
+            this.txt_IMEI.Location = new System.Drawing.Point(102, 154);
             this.txt_IMEI.Name = "txt_IMEI";
-            this.txt_IMEI.Size = new System.Drawing.Size(100, 20);
-            this.txt_IMEI.TabIndex = 21;
+            this.txt_IMEI.Size = new System.Drawing.Size(183, 20);
+            this.txt_IMEI.TabIndex = 5;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(48, 167);
+            this.labelControl5.Location = new System.Drawing.Point(48, 102);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(48, 14);
             this.labelControl5.TabIndex = 20;
@@ -115,7 +115,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(60, 102);
+            this.labelControl3.Location = new System.Drawing.Point(60, 157);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(36, 14);
             this.labelControl3.TabIndex = 18;
@@ -137,11 +137,11 @@
             this.labelControl1.TabIndex = 16;
             this.labelControl1.Text = "品牌：";
             // 
-            // IntoStorageV1
+            // IntoStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 386);
+            this.ClientSize = new System.Drawing.Size(489, 301);
             this.Controls.Add(this.lue_Supplier);
             this.Controls.Add(this.lue_Type);
             this.Controls.Add(this.lue_Brand);
@@ -153,7 +153,9 @@
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Name = "IntoStorageV1";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "IntoStorage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "添加入库";
             this.Load += new System.EventHandler(this.IntoStorageV1_Load);

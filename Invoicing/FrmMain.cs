@@ -18,7 +18,6 @@ namespace Invoicing
 {
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-
         public FrmMain()
         {
             InitializeComponent();
@@ -68,6 +67,17 @@ namespace Invoicing
 
             #endregion
         }
+
+        private int ChildFormWidth;      //子菜单宽度
+
+        #region FrmMain_Load
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            ChildFormWidth = this.Width - dockPanel1.Width - 40;
+
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+        }
+        #endregion
 
         #region 菜单树 和table 页签
         /// <summary>
@@ -172,24 +182,7 @@ namespace Invoicing
         //}
 
 
-        /// <summary>
-        /// 判断是否已打开
-        /// </summary>
-        /// <param name="ChildTypeString"></param>
-        /// <returns></returns>
-        private bool ContainMDIChild(string ChildTypeString)
-        {
-            foreach (Form f in MdiChildren)
-            {
-                string a = f.Text;
-                if (f.Text == ChildTypeString)
-                {
-                    f.Select();
-                    return true;
-                }
-            }
-            return false;
-        }
+
         #endregion
 
         #region 皮肤
@@ -225,6 +218,7 @@ namespace Invoicing
         #endregion
 
         #region 菜单加载
+
         #region 入库管理
         /// <summary>
         /// 入库管理
@@ -233,44 +227,80 @@ namespace Invoicing
         /// <param name="e"></param>
         private void navBarItem1_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            XtraForm xf = new XtraForm();
-            xtraTabbedMdiManager1.MdiParent = this;
-            xf.Text = navBarItem1.Caption;
-            xf.MdiParent = this;
-            var s = this.Width;
-            var ss = dockPanel1.Width;
+            var fm = new IntoStorageManage();
+            fm.Width = ChildFormWidth;
+            AddChildForm(fm, navBarItem1.Caption);
+        }
+        #endregion
 
-            PanelControl PC = new PanelControl();
-            IntoStorageManage.FormWidth = this.Width - dockPanel1.Width-40;        //右边窗体宽度
-            PC.Dock = DockStyle.Fill;
-            xf.Controls.Add(PC);
-            PC.Controls.Clear();
-            PC.Controls.Add(IntoStorageManage.ItSelf);
-            IntoStorageManage.ItSelf.Dock = System.Windows.Forms.DockStyle.Fill;
-            
-            xf.Show();
-            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+        #region 出库管理
+        private void navBarItem2_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            var fm = new OutStorageManage();
+            fm.Width = ChildFormWidth;
+            AddChildForm(fm, navBarItem2.Caption);
         }
         #endregion
 
         #region 基础字典
         private void navBarItem4_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            XtraForm xf = new XtraForm();
-            xtraTabbedMdiManager1.MdiParent = this;
-            xf.Text = "基础字典";
-            xf.MdiParent = this;
-
-            PanelControl PC = new PanelControl();
-            PC.Dock = DockStyle.Fill;
-            xf.Controls.Add(PC);
-            PC.Controls.Clear();
-            PC.Controls.Add(BasicDictionary.ItSelf);
-            BasicDictionary.ItSelf.Dock = System.Windows.Forms.DockStyle.Fill;
-            xf.Show();
-            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+            AddChildForm(new BasicDictionary(), navBarItem4.Caption);
         }
         #endregion
+
         #endregion
+
+        #region 添加子窗体
+        /// <summary>
+        /// 添加子窗体
+        /// </summary>
+        /// <param name="c">子窗体</param>
+        /// <param name="caption">窗体名字</param>
+        private void AddChildForm(Control c, string caption)
+        {
+            //判断窗体是否打开
+            if (ContainMDIChild(caption))
+            {
+                return;
+            }
+
+            XtraForm xf = new XtraForm();
+            xtraTabbedMdiManager1.MdiParent = this;     //设置控件的父表单
+            xf.MdiParent = this;        //设置新建窗体的父表单为当前活动窗口
+            PanelControl pc = new PanelControl();
+            pc.Dock = DockStyle.Fill;
+            pc.Controls.Add(c);
+            xf.Text = caption;
+            xf.Controls.Add(pc);
+            xf.Show();
+        }
+        #endregion
+
+        #region 判断是否已打开
+        /// <summary>
+        /// 判断是否已打开
+        /// </summary>
+        /// <param name="ChildTypeString"></param>
+        /// <returns></returns>
+        private bool ContainMDIChild(string ChildTypeString)
+        {
+            foreach (XtraForm f in MdiChildren)
+            {
+                if (f.Text == ChildTypeString)
+                {
+                    //xfs.Remove(f);
+                    //f.Close();
+                    //break;
+
+                    f.Select();
+                    return true;
+                }
+            }
+            return false;
+        }
+        #endregion
+
+        
     }
 }

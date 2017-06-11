@@ -161,7 +161,15 @@ namespace Invoicing.FormUI
                     }
                 }
 
+
+
                 Service.IService.IMobilePhone phone = new Service.ServiceImp.MobilePhone();
+
+                if (phone.IsExist(p => p.MobileIMEI == txt_IMEI.Text.Trim()))
+                {
+                    XtraMessageBox.Show("该串码已经存在!");
+                    return;
+                }
 
                 Domain.MobilePhone mobile = new Domain.MobilePhone();
                 mobile.MobileBrandId = Convert.ToInt32(lue_Brand.EditValue);     //品牌ID
@@ -175,6 +183,7 @@ namespace Invoicing.FormUI
                 if (phone.Save(mobile))
                 {
                     XtraMessageBox.Show("保存成功!");
+                    DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

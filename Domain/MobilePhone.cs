@@ -27,6 +27,7 @@ namespace Domain
         public Nullable<System.DateTime> MobileOutTime { get; set; }
         public Nullable<int> MobileState { get; set; }
         public string MobileRemarks { get; set; }
+        public string MobileOutRemarks { get; set; }
     
         public virtual PROPTYPEBASE MobileBrand { get; set; }
         public virtual PROPTYPEBASE MobileModel { get; set; }
