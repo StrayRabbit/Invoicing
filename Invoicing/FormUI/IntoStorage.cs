@@ -25,6 +25,7 @@ namespace Invoicing.FormUI
         {
             InitLookUpEdit(lue_Brand, 2);       //加载品牌
             InitLookUpEdit(lue_Supplier, 4);     //加载供应商
+            txt_IntoDate.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");        //默认入库时间
 
             InitDataById(Id);
         }
@@ -165,6 +166,20 @@ namespace Invoicing.FormUI
                     }
                 }
 
+                if (string.IsNullOrEmpty(txt_IntoDate.Text.Trim()))
+                {
+                    XtraMessageBox.Show("入库时间不能为空!");
+                    return;
+                }
+                else
+                {
+                    if (!Common.Tools.IsDate(txt_IntoDate.Text.Trim()))
+                    {
+                        XtraMessageBox.Show("入库时间格式不正确!");
+                        return;
+                    }
+                }
+
 
 
                 Service.IService.IMobilePhone phone = new Service.ServiceImp.MobilePhone();
@@ -195,7 +210,7 @@ namespace Invoicing.FormUI
                 mobile.MobileIMEI = txt_IMEI.Text.Trim();       //串码
                 mobile.MobileCost = Convert.ToDecimal(txt_Cost.Text.Trim());        //成本
                 mobile.MobileSupplierId = Convert.ToInt32(lue_Supplier.EditValue);  //供应商
-                mobile.MobileInTime = Id > 0 ? mobile.MobileInTime : DateTime.Now;
+                mobile.MobileInTime = Convert.ToDateTime(txt_IntoDate.Text.Trim());
                 mobile.MobileState = 0;     //0 表示未出库
                 mobile.MobileRemarks = txt_Remarks.Text.Trim();     //备注
 
@@ -236,6 +251,7 @@ namespace Invoicing.FormUI
                 txt_Cost.Text = model.MobileCost.ToString();        //成本
                 lue_Supplier.EditValue = model.MobileSupplierId;  //供应商
                 txt_Remarks.Text = model.MobileRemarks;     //备注
+                txt_IntoDate.Text = model.MobileInTime == null ? DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") : Convert.ToDateTime(model.MobileInTime).ToString("yyyy/MM/dd HH:mm:ss");     //入库时间
             }
             catch (Exception ex)
             {

@@ -26,6 +26,7 @@ namespace Invoicing.FormUI
         private void OutStorage_Load(object sender, EventArgs e)
         {
             InitLookUpEdit(lue_SalePerson, 5);      //销售员
+            txt_OutDate.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");        //默认出库时间
 
             if (SelectId > 0)
             {
@@ -121,13 +122,27 @@ namespace Invoicing.FormUI
                     }
                 }
 
+                if (string.IsNullOrEmpty(txt_OutDate.Text.Trim()))
+                {
+                    XtraMessageBox.Show("出库时间不能为空!");
+                    return;
+                }
+                else
+                {
+                    if (!Common.Tools.IsDate(txt_OutDate.Text.Trim()))
+                    {
+                        XtraMessageBox.Show("出库时间格式不正确!");
+                        return;
+                    }
+                }
+
                 Service.IService.IMobilePhone service = new Service.ServiceImp.MobilePhone();
                 var model = service.Get(p => p.ID == SelectId);
 
                 model.MobileSales = Convert.ToDecimal(txt_Sales.Text.Trim());       //出库金额
                 model.MobileSalesPersonId = Convert.ToInt32(lue_SalePerson.EditValue);      //销售员
                 //如果有出库时间，则不修改出库时间
-                model.MobileOutTime = model.MobileState == 0 ? DateTime.Now : model.MobileOutTime;
+                model.MobileOutTime = Convert.ToDateTime(txt_OutDate.Text.Trim());
                 model.MobileState = 1;
                 model.MobileProfit = model.MobileSales - model.MobileCost;      //利润
                 model.MobileOutRemarks = txt_Remarks.Text.Trim();       //备注
@@ -188,6 +203,7 @@ namespace Invoicing.FormUI
                 txt_Remarks.Text = model.MobileOutRemarks;      //备注
                 lue_SalePerson.EditValue = model.MobileSalesPersonId;       //销售员
                 txt_Sales.Text = model.MobileSales.ToString();      //出库金额
+                txt_OutDate.Text = model.MobileOutTime == null ? DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") : Convert.ToDateTime(model.MobileOutTime).ToString("yyyy/MM/dd HH:mm:ss");      //出库时间
             }
             catch (Exception ex)
             {

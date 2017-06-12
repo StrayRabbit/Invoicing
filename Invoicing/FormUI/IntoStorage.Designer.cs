@@ -41,12 +41,16 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txt_Remarks = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_IntoDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Supplier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Brand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Cost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_IMEI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Remarks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_IntoDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_IntoDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lue_Supplier
@@ -79,7 +83,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(205, 320);
+            this.btn_Save.Location = new System.Drawing.Point(205, 341);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
             this.btn_Save.TabIndex = 7;
@@ -95,7 +99,7 @@
             // 
             // txt_IMEI
             // 
-            this.txt_IMEI.Location = new System.Drawing.Point(102, 147);
+            this.txt_IMEI.Location = new System.Drawing.Point(102, 168);
             this.txt_IMEI.Name = "txt_IMEI";
             this.txt_IMEI.Size = new System.Drawing.Size(311, 20);
             this.txt_IMEI.TabIndex = 5;
@@ -118,7 +122,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(60, 150);
+            this.labelControl3.Location = new System.Drawing.Point(60, 171);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(36, 14);
             this.labelControl3.TabIndex = 18;
@@ -142,24 +146,47 @@
             // 
             // txt_Remarks
             // 
-            this.txt_Remarks.Location = new System.Drawing.Point(102, 198);
+            this.txt_Remarks.Location = new System.Drawing.Point(102, 219);
             this.txt_Remarks.Name = "txt_Remarks";
             this.txt_Remarks.Size = new System.Drawing.Size(311, 96);
             this.txt_Remarks.TabIndex = 6;
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(60, 242);
+            this.labelControl8.Location = new System.Drawing.Point(60, 263);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(36, 14);
             this.labelControl8.TabIndex = 44;
             this.labelControl8.Text = "备注：";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(36, 133);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(60, 14);
+            this.labelControl6.TabIndex = 45;
+            this.labelControl6.Text = "入库时间：";
+            // 
+            // txt_IntoDate
+            // 
+            this.txt_IntoDate.EditValue = null;
+            this.txt_IntoDate.Location = new System.Drawing.Point(102, 130);
+            this.txt_IntoDate.Name = "txt_IntoDate";
+            this.txt_IntoDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txt_IntoDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txt_IntoDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.txt_IntoDate.Size = new System.Drawing.Size(150, 20);
+            this.txt_IntoDate.TabIndex = 46;
             // 
             // IntoStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 383);
+            this.Controls.Add(this.txt_IntoDate);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txt_Remarks);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.lue_Supplier);
@@ -185,6 +212,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_Cost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_IMEI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Remarks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_IntoDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_IntoDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +234,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.MemoEdit txt_Remarks;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.DateEdit txt_IntoDate;
     }
 }
