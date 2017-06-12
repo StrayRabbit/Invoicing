@@ -213,6 +213,15 @@ namespace Invoicing
         }
         #endregion
 
+        #region 折线图
+        private void navBarItem3_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            var fm = new SearchLineChart();
+            fm.Width = ChildFormWidth;
+            AddChildForm(fm, navBarItem3.Caption);
+        }
+        #endregion
+
         #endregion
 
         #region 添加子窗体
@@ -264,6 +273,8 @@ namespace Invoicing
             return false;
         }
         #endregion
+
+       
 
 
 
