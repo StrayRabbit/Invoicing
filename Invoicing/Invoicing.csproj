@@ -119,6 +119,12 @@
     <Compile Include="FormUI\SearchLineChart.Designer.cs">
       <DependentUpon>SearchLineChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUI\SearchPieChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUI\SearchPieChart.Designer.cs">
+      <DependentUpon>SearchPieChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUI\SearchSales.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\SearchLineChart.resx">
       <DependentUpon>SearchLineChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUI\SearchPieChart.resx">
+      <DependentUpon>SearchPieChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUI\SearchSales.resx">
       <DependentUpon>SearchSales.cs</DependentUpon>

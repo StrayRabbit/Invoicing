@@ -28,3 +28,4 @@ D:\GitHub\Invoicing\Invoicing\bin\Debug\Invoicing.exe.config
 D:\GitHub\Invoicing\Invoicing\bin\Debug\Invoicing.pdb
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.SearchSales.resources
 D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.SearchLineChart.resources
+D:\GitHub\Invoicing\Invoicing\obj\Debug\Invoicing.FormUI.SearchPieChart.resources

@@ -213,12 +213,21 @@ namespace Invoicing
         }
         #endregion
 
-        #region 折线图
+        #region 销量统计查询
         private void navBarItem3_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             var fm = new SearchLineChart();
             fm.Width = ChildFormWidth;
             AddChildForm(fm, navBarItem3.Caption);
+        }
+        #endregion
+
+        #region 品牌统计查询
+        private void navBarItem6_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            var fm = new SearchPieChart();
+            fm.Width = ChildFormWidth;
+            AddChildForm(fm, navBarItem6.Caption);
         }
         #endregion
 
@@ -274,7 +283,9 @@ namespace Invoicing
         }
         #endregion
 
-       
+
+
+
 
 
 
